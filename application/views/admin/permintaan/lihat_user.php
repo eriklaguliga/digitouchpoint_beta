@@ -149,6 +149,6 @@
    </div>
    <!-- /.box -->
 </div>  
-    
+<?php $this->load->view('admin/footer') ?> 
 </body>
 </html>
