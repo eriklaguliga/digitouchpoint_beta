@@ -162,10 +162,10 @@
            </table>
         </div>
         <!-- /.box-body -->
-     </div>
+     </div> 
      <!-- /.box -->
   </div>
       <!-- /.row -->
-
+  <?php $this->load->view('admin/footer') ?>
 </body>
 </html>
