@@ -86,6 +86,17 @@ $(document).ready(function(){
  }
  });
 });
+$(document).ready(function(){
+ $('#show_hide').on('click', function(){
+ var passwordField = $('#password');
+ var passwordFieldType = passwordField.attr('type');
+ if(passwordFieldType == 'password'){
+  passwordField.attr('type', 'text');
+ } else {
+  passwordField.attr('type', 'password');
+ }
+ });
+});
 </script>
   <div class="row" style="background:#FAFAFA;margin:1px" id="top">
   <div id="notification"></div>

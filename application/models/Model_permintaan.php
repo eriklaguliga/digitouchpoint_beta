@@ -15,6 +15,8 @@
                'disposisi' => $this->input->post('disposisi'),
                'id_seksi' => $this->input->post('id_seksi'),
                'isi_nota' => $this->input->post('isi_nota'),
+               'deskripsi' => $this->input->post('deskripsi'),
+               'nama_usecase' => $this->input->post('use_case'),
                'id_bidang' =>$this->input->post('id_bidang'),
                'last_edit' => $this->session->userdata('username'),
                'tobeuser'=> $this->input->post('namauser')

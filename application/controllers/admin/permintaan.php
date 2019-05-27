@@ -19,9 +19,15 @@ Class Permintaan extends CI_Controller {
     }
 
     function add() {
+        $config['upload_path'] = './upload/';
+        $config['allowed_types'] = 'doc|docx';
+        $config['max_size'] = 0;
+        // set configurasi
+        $this->load->library('upload',$config);
         $data['jumlah'] = $this->Model_permintaan->getjumlahnotif();
         $data['hasil'] = $this->Model_permintaan->ambilnotif();
         $data['profil'] = $this->Model_permintaan->get_profile();
+        
         if (isset($_POST['submit'])) {
             $this->Model_permintaan->add();
             redirect('admin/permintaan', $data);

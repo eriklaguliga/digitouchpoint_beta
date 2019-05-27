@@ -228,10 +228,9 @@ $(document).ready(function(){
                   <i class="fa fa-home" style="width:20px"></i> bidang
                 </div>
               </span>
-              
               <div class="form-group">
               <select name="bidang" id="bidang" class = "form-control input-lg"> 
-                    <option value=""><?php echo $profil['nama_bidang'] ?></option>
+              <option value="" style="font-size:50px;><?php echo $profil['nama_bidang'] ?></option>
                     <?php 
                     foreach ($bidang as $row)
                     {

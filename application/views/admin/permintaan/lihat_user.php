@@ -68,21 +68,43 @@
                   </div>
                   <div class="col-xs-12" style="margin-top:10px">
                      <div class="form-group">
-                        <span class="col-xs-2" style="margin-left:10px; margin-bottom:15px; font-size:18px">Sub Divisi &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:</span>
-                        <div class="col-xs-4">
-                           <?php echo cmb_dinamis('id_seksi','tbl_subbidang','nama_subbidang','id_seksi',$nota['id_seksi'])?>
-                        </div>
-                        <span class="col-xs-2" style="margin-left:10px; margin-bottom:15px; font-size:18px">Tanggal &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:</span>
+                        <span class="col-xs-2" style="margin-left:10px; margin-bottom:15px; font-size:18px">Nama bidang &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:</span>
                         <div class="col-xs-3">
-                           <input class="form-control" type="text" value="<?php echo $nota['tanggal'] ?>" readonly="" id="onlynumber" name="tanggal" maxlength="11"  required />
+                           <input class="form-control" type="text" value="<?php echo $this->session->userdata('nama_bidang'); ?>" readonly="" id="user" name="namauser" maxlength="50"  required />
                         </div>
                      </div>
                   </div>
                   <div class="col-xs-12" style="margin-top:10px">
                      <div class="form-group">
+                        <span class="col-xs-2" style="margin-left:10px; margin-bottom:15px; font-size:18px">Nama sub bidang &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:</span>
+                        <div class="col-xs-3">
+                           <input class="form-control" type="text" value="<?php echo $this->session->userdata('nama_seksi'); ?>" readonly="" id="user" name="namauser" maxlength="50"  required />
+                        </div>
+                     </div>
+                  </div>
+                  
+                  <div class="col-xs-12" style="margin-top:10px">
+                     <div class="form-group">
                         <span class="col-xs-2" style="margin-left:10px; margin-bottom:15px; font-size:18px">Oleh &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:</span>
                         <div class="col-xs-3">
                            <input class="form-control" type="text" value="<?php echo $this->session->userdata('username'); ?>" readonly="" id="user" name="namauser" maxlength="50"  required />
+                        </div>
+                     </div>
+                  </div>
+                  <div class="col-xs-12" style="margin-top:10px">
+                     <div class="form-group">
+                        <span class="col-xs-2" style="margin-left:10px; margin-bottom:15px; font-size:18px">nama use case &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:</span>
+                        <div class="col-xs-3">
+                           <input class="form-control" type="text" value="<?php echo $nota['isi_nota']; ?>" readonly="" id="user" name="namauser" maxlength="50"  required />
+                        </div>
+                     </div>
+                  </div>
+                  <div class="col-xs-12" style="margin-top:15px">
+                     <div class="form-group">
+                        <span class="col-xs-2" style="margin-left:10px; margin-bottom:15px; font-size:18px">Deskripsi &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: </span>
+                        <div class="col-xs-4">
+                           <textarea disabled class="textarea" name="isi_nota" placeholder="isi nota"
+                              style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;"><?php echo $nota['deskripsi'] ?></textarea>
                         </div>
                      </div>
                   </div>
@@ -95,6 +117,7 @@
                         </div>
                      </div>
                   </div>
+
 
                   <div class="col-xs-12" style="margin-top:15px; margin-bottom: 10px">
                      <div class="form-group">

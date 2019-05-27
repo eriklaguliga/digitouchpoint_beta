@@ -55,17 +55,10 @@
                                 <span class="col-xs-2" style="margin-left:10px; margin-bottom:15px; font-size:18px">Bidang &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:</span>
                                 <div class="col-xs-4">
                                 <input class="form-control" type="text"
-                                <?php $seksi_user_pengguna = $this->session->userdata('nama_subbidang');
-                                          $seksi_id_pengguna = $this->session->userdata('id_seksi');
-                                    $cek_database = $this->Model_permintaan->cek_seksi($seksi_user_pengguna)?>
-                                    <?php if ($cek_database->num_rows() > 0):?>
-                                    <?php 
-                                    //   $hasilbaru= $this->Model_permintaan->cekseksi($seksi_user_pengguna)?>    
+                                 
                                         value= "<?php echo $profil['id_bidang']?> <?php echo("--") ?> <?php echo $profil['nama_bidang']?>"
-                                    <?php elseif ($cek_database->num_rows() < 0):?>
-                                    <?php echo cmb_dinamis('id_seksi', 'tbl_subbidang', 'nama_subbidang', 'id_seksi'); ?>
-
-                                    <?php endif ?>
+                                
+                                    
                                     readonly="" id="user" name="id_bidang" maxlength="50" autofocus required  />
                                 </div>
                                 <span class="col-xs-2" style="margin-left:10px; margin-bottom:15px; font-size:18px">Approver &nbsp;:</span>
@@ -83,29 +76,45 @@
                             </div>
                         </div>
 
+                       
+                        
                         <div class="col-xs-12" style="margin-top:10px">
                             <div class="form-group">
                                 <span class="col-xs-2" style="margin-left:10px; margin-bottom:15px; font-size:18px">sub bidang &nbsp;:</span>
                                 <div class="col-xs-3">
                                 <input class="form-control" type="text"
-                                    <?php $seksi_user_pengguna = $this->session->userdata('nama_subbidang');
-                                          $seksi_id_pengguna = $this->session->userdata('id_seksi');
-                                    $cek_database = $this->Model_permintaan->cek_seksi($seksi_user_pengguna)?>
-                                    <?php if ($cek_database->num_rows() > 0):?>
+                                    
                                     <?php 
                                     //   $hasilbaru= $this->Model_permintaan->cekseksi($seksi_user_pengguna)?>    
-                                        value= "<?php echo $profil['id_seksi']?> <?php echo("--") ?> <?php echo $profil['nama_subbidang']; ?>"
-                                    <?php elseif ($cek_database->num_rows() < 0):?>
-                                    <?php echo cmb_dinamis('id_seksi', 'tbl_subbidang', 'nama_subbidang', 'id_seksi'); ?>
+                                        value= "<?php echo $profil['id_seksi']?> <?php echo("--") ?> <?php echo $profil['nama_seksi']; ?>"
+                                   
 
-                                    <?php endif ?>
+                                    
                                     readonly="" id="user" name="id_seksi" maxlength="50" autofocus required />
                                 </div>
                             </div>
                         </div>
-
+                       
                         
-                        
+                        <div class="col-xs-12">
+                            <div class="form-group" style="margin-top:10px">
+                                <span class="col-xs-2" style="margin-left:10px; margin-bottom:15px; font-size:18px">Nama Use case :</span>
+                                <div class="col-xs-4">
+                                    <input class="form-control" type="text" name="use_case"  placeholder="Masukkan nama use case"  autofocus required />
+                                </div>
+                                
+                            </div>
+                        </div>
+                        <div class="col-xs-12" style="margin-top:15px">
+                            <div class="form-group">
+                                <span class="col-xs-2" style="margin-left:10px; margin-bottom:15px; font-size:18px">dekrispsi&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:</span>
+                                <div class="col-xs-4">
+                                    <textarea class="textarea" name="deskripsi" placeholder="Keterangan"
+                                              style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;"></textarea>
+                                </div>
+                                
+                            </div>
+                            
                         <div class="col-xs-12" style="margin-top:15px">
                             <div class="form-group">
                                 <span class="col-xs-2" style="margin-left:10px; margin-bottom:15px; font-size:18px">Isi Nota &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:</span>
@@ -115,19 +124,32 @@
                                 </div>
                                 
                             </div>
-                            <span class="col-xs-2" style="margin-left:-170px; margin-bottom:15px; font-size:18px"></span>
+                            
+                        </div>
+                        
+                        
+
+                        <div class="col-xs-12">
+                            <div class="form-group" style="margin-top:10px">
+                                <span class="col-xs-2" style="margin-left:10px; margin-bottom:15px; font-size:18px">Upload berkas :</span>
+                                <div class="col-xs-4">
+                                    <input type="file" name="filename"  />
+                                </div>
+                                
+                            </div>
+                        </div>
+                        <div class="col-xs-12" style="margin-top:15px; margin-bottom: 10px">
+                            <div class="form-group">
+                                <span class="col-xs-4 col-xs-push-2" style="margin-left:20px; margin-top:-20px; font-size:14px; font-style:italic; color:#888">*Format file:jika di perlukan .jpg / .jpeg / .pdf/.docx</span>
+                            </div>
+                        </div>
+                        <span class="col-xs-2" style="margin-left:-170px; margin-bottom:15px; font-size:18px"></span>
                             <div class="col-xs-2 col-xs-push-1">
                               <input type="submit" name="submit" class="btn btn-lg btn-block btn-success fa fa-save" value="Simpan" />
                             </div>
                             <div class="col-xs-2 col-xs-push-1">
                               <a href="<?php echo site_url('admin/permintaan') ?>"><input type="submit" name="submit" class="btn btn-danger btn-block btn-flat" value="Batal" /></a>
                             </div>
-                        </div>
-                        <div class="col-xs-12" style="margin-top:15px; margin-bottom: 10px">
-                            <div class="form-group">
-                                <span class="col-xs-4 col-xs-push-2" style="margin-left:20px; margin-top:-20px; font-size:14px; font-style:italic; color:#888">*Format file:jika di perlukan .jpg / .jpeg / .png/.docx</span>
-                            </div>
-                        </div>
 
                         <!-- /.col -->
                     </div>
