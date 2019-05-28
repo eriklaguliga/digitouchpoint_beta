@@ -7,20 +7,34 @@
         parent::__construct();
         $this->load->Model('Model_permintaan');
       }
-
+      
        function add() {
-        
+
+        $config['upload_path']  ='./upload/';
+        $config['allowed_types']  ='doc|docx|pdf|gif|jpg|png';
+        $config['max_size'] =0;
+        $this->load->library('upload',$config);
+
+        if( ! $this->upload->do_upload('filename')){
+          $error = array('error'=> $this->upload->display_errors());
+          $this->load->view('view/permintaan/add');
+        }else{
+          $upload_data = $this->upload->data();
            $data = array(
                'nomor' => $this->input->post('nomor'),
                'disposisi' => $this->input->post('disposisi'),
                'id_seksi' => $this->input->post('id_seksi'),
                'isi_nota' => $this->input->post('isi_nota'),
+               'deskripsi' => $this->input->post('deskripsi'),
+               'nama_usecase' => $this->input->post('use_case'),
+               'stakeholder' => $this->input->post('stakeholder'),
+               'file' =>   $upload_data['file_name'],
                'id_bidang' =>$this->input->post('id_bidang'),
                'last_edit' => $this->session->userdata('username'),
-               'tobeuser'=> $this->input->post('namauser')
+               'tobeuser'=> $this->input->post('namauser'),
+               
                    //     'file' => $uploads
            );
-
            $this->db->insert('tbl_nota', $data);
            
            $id_nota = $this->input->post('id_nota');
@@ -29,28 +43,28 @@
            $data1 = array(
                'id_nota' => $ambil,
                'level' => '1',
-               'username' => 'user',
+               'username' => $this->session->userdata('username'),
            );
            $data2 = array(
                'id_nota' => $ambil,
                'level' => '2',
-               'username' => 'dataowner',
+               'username' =>  $this->session->userdata('username'),
            );
            $data3 = array(
                'id_nota' => $ambil,
                'level' => '3',
-               'username' => 'dgcouncil',
+               'username' =>  $this->session->userdata('username'),
            );
            $data4 = array(
                'id_nota' => $ambil,
                'level' => '4',
-               'username' => 'admin',
+               'username' =>  $this->session->userdata('username'),
                    //     'file' => $uploads
            );
               $data5 = array(
                   'id_nota' => $ambil,
                   'level' => '5',
-                  'username' => 'FINISH',
+                  'username' =>  $this->session->userdata('username'),
                       //     'file' => $uploads
               );
               $this->db->insert('apruval',$data1);
@@ -74,8 +88,11 @@
                'tobeuser' => $namauser1
             );
             return $hasil2['username'];
+          }
    
        }
+
+       function ceknota($nama)
 
        function cekseksi($nama_subbidang){
          $hasil = $this->db->query("SELECT id_seksi FROM tbl_subbidang WHERE nama_subbidang like '%$nama_subbidang%' limit 1")->row_array();
@@ -303,14 +320,14 @@
       function update_profile() {
         $username = $this->session->userdata('username');
         $nama_bidang = $this->get_nama_bidang_id($this->input->post('bidang'));
-        $nama_subbidang = $this->get_nama_seksi_id($this->input->post('seksi'));
+        $nama_seksi = $this->get_nama_seksi_id($this->input->post('seksi'));
     
            $data = array(
                'nama' => $this->input->post('nama'),
                'email' => $this->input->post('email'),
                'phone_number' => $this->input->post('phone_number'),
                'nama_bidang' => $nama_bidang,
-               'nama_subbidang' =>$nama_subbidang,
+               'nama_seksi' =>$nama_seksi,
                'id_bidang' => $this->input->post('bidang'),
                'id_seksi' => $this->input->post('seksi')
            );
