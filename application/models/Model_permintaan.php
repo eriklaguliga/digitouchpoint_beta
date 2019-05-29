@@ -7,9 +7,20 @@
         parent::__construct();
         $this->load->Model('Model_permintaan');
       }
-
+      
+      
        function add() {
-        
+
+        $config['upload_path']  ='./upload/';
+        $config['allowed_types']  ='doc|docx|pdf|gif|jpg|png';
+        $config['max_size'] =0;
+        $this->load->library('upload',$config);
+
+        if( ! $this->upload->do_upload('filename')){
+          $error = array('error'=> $this->upload->display_errors());
+          $this->load->view('view/permintaan/add');
+        }else{
+          $upload_data = $this->upload->data();
            $data = array(
                'nomor' => $this->input->post('nomor'),
                'disposisi' => $this->input->post('disposisi'),
@@ -17,12 +28,14 @@
                'isi_nota' => $this->input->post('isi_nota'),
                'deskripsi' => $this->input->post('deskripsi'),
                'nama_usecase' => $this->input->post('use_case'),
+               'stakeholder' => $this->input->post('stakeholder'),
+               'file_' =>   $upload_data['file_name'],
                'id_bidang' =>$this->input->post('id_bidang'),
                'last_edit' => $this->session->userdata('username'),
-               'tobeuser'=> $this->input->post('namauser')
+               'tobeuser'=> $this->input->post('namauser'),
+               
                    //     'file' => $uploads
            );
-
            $this->db->insert('tbl_nota', $data);
            
            $id_nota = $this->input->post('id_nota');
@@ -76,9 +89,12 @@
                'tobeuser' => $namauser1
             );
             return $hasil2['username'];
+          }
    
        }
 
+       
+      
        function cekseksi($nama_subbidang){
          $hasil = $this->db->query("SELECT id_seksi FROM tbl_subbidang WHERE nama_subbidang like '%$nama_subbidang%' limit 1")->row_array();
          $seksi = $hasil['id_seksi'];

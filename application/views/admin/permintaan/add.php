@@ -77,23 +77,20 @@
                         </div>
 
                        
-                        
                         <div class="col-xs-12" style="margin-top:10px">
                             <div class="form-group">
                                 <span class="col-xs-2" style="margin-left:10px; margin-bottom:15px; font-size:18px">sub bidang &nbsp;:</span>
                                 <div class="col-xs-3">
                                 <input class="form-control" type="text"
-                                    
                                     <?php 
                                     //   $hasilbaru= $this->Model_permintaan->cekseksi($seksi_user_pengguna)?>    
                                         value= "<?php echo $profil['id_seksi']?> <?php echo("--") ?> <?php echo $profil['nama_seksi']; ?>"
-                                   
-
-                                    
                                     readonly="" id="user" name="id_seksi" maxlength="50" autofocus required />
                                 </div>
                             </div>
                         </div>
+                        
+                        
                        
                         
                         <div class="col-xs-12">
@@ -117,9 +114,21 @@
                             
                         <div class="col-xs-12" style="margin-top:15px">
                             <div class="form-group">
-                                <span class="col-xs-2" style="margin-left:10px; margin-bottom:15px; font-size:18px">Isi Nota &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:</span>
+                                <span class="col-xs-2" style="margin-left:10px; margin-bottom:15px; font-size:18px">Keterangan Usecase &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:</span>
                                 <div class="col-xs-4">
-                                    <textarea class="textarea" name="isi_nota" placeholder="isi nota"
+                                    <textarea class="textarea" name="isi_nota" placeholder="masukkan keterangan usecase"
+                                              style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;"></textarea>
+                                </div>
+                                
+                            </div>
+                            
+                        </div>
+
+                        <div class="col-xs-12" style="margin-top:15px">
+                            <div class="form-group">
+                                <span class="col-xs-2" style="margin-left:10px; margin-bottom:15px; font-size:18px">jenis data & stakeholder &nbsp;&nbsp;&nbsp;:</span>
+                                <div class="col-xs-4">
+                                    <textarea class="textarea" name="stakeholder" placeholder="masukkan jenis stakeholder"
                                               style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;"></textarea>
                                 </div>
                                 

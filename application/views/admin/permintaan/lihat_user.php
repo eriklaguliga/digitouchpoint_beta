@@ -103,14 +103,14 @@
                      <div class="form-group">
                         <span class="col-xs-2" style="margin-left:10px; margin-bottom:15px; font-size:18px">Deskripsi &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: </span>
                         <div class="col-xs-4">
-                           <textarea disabled class="textarea" name="isi_nota" placeholder="isi nota"
+                           <textarea disabled class="textarea" name="keterangan" placeholder="isi nota"
                               style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;"><?php echo $nota['deskripsi'] ?></textarea>
                         </div>
                      </div>
                   </div>
                   <div class="col-xs-12" style="margin-top:15px">
                      <div class="form-group">
-                        <span class="col-xs-2" style="margin-left:10px; margin-bottom:15px; font-size:18px">Isi Nota &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: </span>
+                        <span class="col-xs-2" style="margin-left:10px; margin-bottom:15px; font-size:18px">Keterangan use case &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: </span>
                         <div class="col-xs-4">
                            <textarea disabled class="textarea" name="isi_nota" placeholder="isi nota"
                               style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;"><?php echo $nota['isi_nota'] ?></textarea>
@@ -118,12 +118,23 @@
                      </div>
                   </div>
 
+                  <div class="col-xs-12" style="margin-top:15px">
+                     <div class="form-group">
+                        <span class="col-xs-2" style="margin-left:10px; margin-bottom:15px; font-size:18px">jenis data & stakeholder &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: </span>
+                        <div class="col-xs-4">
+                           <textarea disabled class="textarea" name="isi_nota" placeholder="isi nota"
+                              style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;"><?php echo $nota['stakeholder'] ?></textarea>
+                        </div>
+                     </div>
+                  </div>
+
 
                   <div class="col-xs-12" style="margin-top:15px; margin-bottom: 10px">
                      <div class="form-group">
-                        <span class="col-xs-4 col-xs-push-2" style="margin-left:20px; margin-top:-20px; font-size:14px; font-style:italic; color:#888">*Format file:jika di perlukan .jpg / .jpeg / .png/.docx</span>
+                     <a href="<?php echo base_url().'admin/permintaan/download?nomor=',$nota['nomor']; ?>" class="dwn">Download file</a>
                      </div>
                   </div>
+                  
              
                   <div class="box-body">
                      <table id="example1" class="table table-bordered table-hover">
@@ -156,14 +167,7 @@
                      </table>
                   </div>
                   
-                  <div class="col-xs-12" style="margin-top:15px">
-                     <div class="form-group">
-                        <span class="col-xs-2" style="margin-left:570px; margin-bottom:15px; font-size:18px"></span>
-                        <div class="col-xs-2 ">
-                           <a href="<?php echo site_url('admin/permintaan') ?>"><button class="btn btn-lg btn-block btn-success fa ">Kembali</button></a>
-                        </div>
-                     </div>
-                  </div>
+                  
                   <!-- /.col -->
                </div>
                <!-- /.row -->

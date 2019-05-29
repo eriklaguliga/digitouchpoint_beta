@@ -56,6 +56,10 @@
                         </div>
                      </div>
                   </div>
+
+                  
+
+                  
                   <div class="col-xs-12" style="margin-top:10px">
                      <div class="form-group">
                         <span class="col-xs-2" style="margin-left:10px; margin-bottom:15px; font-size:18px">Sub bidang &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:</span>
@@ -63,10 +67,10 @@
                         <input class="form-control" type="text"
                         <?php $nama_subbidang = $nota['id_seksi'];
               
-              $cek_database = $this->Model_permintaan->get_nama_seksi_id($nama_subbidang)?>
-               value= "<?php echo $nota['id_seksi'];?> <?php echo("--") ?> <?php echo $cek_database ?>"
+                        $cek_database = $this->Model_permintaan->get_nama_seksi_id($nama_subbidang)?>
+                           value= "<?php echo $nota['id_seksi'];?> <?php echo("--") ?> <?php echo $cek_database ?>"
               
-              readonly="" id="user" name="id_seksi" maxlength="50" autofocus required  />
+                           readonly="" id="user" name="id_seksi" maxlength="50" autofocus required  />
                         </div>
                         <span class="col-xs-2" style="margin-left:10px; margin-bottom:15px; font-size:18px">Tanggal &nbsp;&nbsp;:</span>
                         <div class="col-xs-3" style="margin-left:-50px;">
@@ -74,7 +78,18 @@
                         </div>
                      </div>
                   </div>
-                  
+
+                  <div class="col-xs-12" style="margin-top:10px">
+                     <div class="form-group">
+                        <span class="col-xs-2" style="margin-left:10px; margin-bottom:15px; font-size:18px"> bidang &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:</span>
+                        <div class="col-xs-4">
+                        <input class="form-control" type="text"
+                        <?php $nama_bidang = $nota['id_bidang'];
+              
+                           $cek_database = $this->Model_permintaan->get_nama_bidang_id($nama_bidang)?>
+                           value= "<?php echo $nota['id_bidang'];?> <?php echo("--") ?> <?php echo $cek_database ?>"
+                           readonly="" id="user" name="id_bidang" maxlength="50" autofocus required  />
+                        </div>
                   <div class="col-xs-12" style="margin-top:10px">
                      <div class="form-group">
                         <span class="col-xs-2" style="margin-left:10px; margin-bottom:15px; font-size:18px">Oleh &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:</span>
@@ -83,20 +98,54 @@
                         </div>
                      </div>
                   </div>
-                  <div class="col-xs-12" style="margin-top:15px">
+                  <div class="col-xs-12" style="margin-top:10px">
                      <div class="form-group">
-                        <span class="col-xs-2" style="margin-left:10px; margin-bottom:15px; font-size:18px">Isi Nota &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: </span>
-                        <div class="col-xs-4">
-                           <textarea class="textarea" name="isi_nota" placeholder="isi nota"
-                              style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;"><?php echo $nota['isi_nota'] ?></textarea>
-                        </div>
-                        <span class="col-xs-2" style="margin-left:10px; margin-bottom:15px; font-size:18px">Isi Catatan : </span>
-                        <div class="col-xs-4" style="margin-left:-50px;">
-                           <textarea class="textarea" name="isi_catatan" placeholder="Isi Catatan"
-                              style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;"></textarea>
+                        <span class="col-xs-2" style="margin-left:10px; margin-bottom:15px; font-size:18px">nama use case &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:</span>
+                        <div class="col-xs-3">
+                           <input class="form-control" type="text" value="<?php echo $nota['isi_nota']; ?>" readonly="" id="user" name="namauser" maxlength="50"  required />
                         </div>
                      </div>
                   </div>
+                  <div class="col-xs-12" style="margin-top:15px">
+                     <div class="form-group">
+                        <span class="col-xs-2" style="margin-left:10px; margin-bottom:15px; font-size:18px">Deskripsi &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: </span>
+                        <div class="col-xs-4">
+                           <textarea disabled class="textarea" name="keterangan" placeholder="isi nota"
+                              style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;"><?php echo $nota['deskripsi'] ?></textarea>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="col-xs-12" style="margin-top:15px">
+                     <div class="form-group">
+                        <span class="col-xs-2" style="margin-left:10px; margin-bottom:15px; font-size:18px">Keterangan use case &nbsp;: </span>
+                        <div class="col-xs-4">
+                           <textarea disabled class="textarea" name="isi_nota" placeholder="isi nota"
+                              style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;"><?php echo $nota['isi_nota'] ?></textarea>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="col-xs-12" style="margin-top:15px">
+                     <div class="form-group">
+                        <span class="col-xs-2" style="margin-left:10px; margin-bottom:15px; font-size:18px">jenis data & stakeholder &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: </span>
+                        <div class="col-xs-4">
+                           <textarea disabled class="textarea" name="isi_nota" placeholder="isi nota"
+                              style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;"><?php echo $nota['stakeholder'] ?></textarea>
+                        </div>
+                     </div>
+                  </div>
+
+                  <div class="col-xs-12" style="margin-top:15px">
+                            <div class="form-group">
+                                <span class="col-xs-2" style="margin-left:10px; margin-bottom:15px; font-size:18px">Catatan &nbsp;&nbsp;&nbsp;:</span>
+                                <div class="col-xs-4">
+                                    <textarea class="textarea" name="isi_catatan" placeholder="Masukkan catatan"
+                                              style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;"></textarea>
+                                </div>
+                                
+                            </div>
+                            
+                        </div>
+                  
 
                   <div class="col-xs-12" style="margin-top:15px; margin-bottom: 10px">
                      <div class="form-group">

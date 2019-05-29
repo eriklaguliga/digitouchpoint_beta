@@ -5,6 +5,30 @@ Class Permintaan extends CI_Controller {
     function __construct() {
         parent::__construct();
         $this->load->Model('Model_permintaan');
+        $this->load->helper(array('download'));
+    }
+
+    public function download(){
+        $this->load->helper('download');
+        if(!empty($_GET['nomor'])){
+            $nomor = basename($_GET['nomor']);
+            $test = $this->db->query("SELECT file_ FROM tbl_nota WHERE nomor = '$nomor' ")->row_array();
+            $filename= $test['file_'];
+            // $file = '/upload/'.$namafile;
+            header("Cache-Control: public");
+            header("Content-Description: File Transfer");
+            header("Content-Disposition: attachment; filename=$filename");
+            header("Content-Type: application/zip");
+            header("Content-Transfer-Encoding: binary");
+            // Read the file
+            readfile($filePath);
+      
+            
+            
+        
+        }
+        
+            
     }
 
     function index() {
@@ -18,16 +42,18 @@ Class Permintaan extends CI_Controller {
         $this->load->view('admin/home', $data);
     }
 
+    
+   function upload_file(){
+       $config['upload_path'] = './uploads/';
+       $config['allowed_types'] = 'doc|docx';
+       $this->load->library('upload',$config);
+       $upload_data = $this->upload->data();
+       
+   }
     function add() {
-        $config['upload_path'] = './upload/';
-        $config['allowed_types'] = 'doc|docx';
-        $config['max_size'] = 0;
-        // set configurasi
-        $this->load->library('upload',$config);
         $data['jumlah'] = $this->Model_permintaan->getjumlahnotif();
         $data['hasil'] = $this->Model_permintaan->ambilnotif();
         $data['profil'] = $this->Model_permintaan->get_profile();
-        
         if (isset($_POST['submit'])) {
             $this->Model_permintaan->add();
             redirect('admin/permintaan', $data);
