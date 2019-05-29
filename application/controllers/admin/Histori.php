@@ -1,6 +1,6 @@
 <?php
 
-Class Historidg extends CI_Controller {
+Class Histori extends CI_Controller {
 
     function __construct() {
         parent::__construct();
@@ -20,5 +20,4 @@ Class Historidg extends CI_Controller {
     }
 
 }
-
 ?>

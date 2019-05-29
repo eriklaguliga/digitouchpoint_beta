@@ -99,6 +99,7 @@
                         </div>
                      </div>
                   </div>
+<<<<<<< HEAD
                   <div class="col-xs-12" style="margin-top:15px">
                      <div class="form-group">
                         <span class="col-xs-2" style="margin-left:10px; margin-bottom:15px; font-size:18px">Deskripsi &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: </span>
@@ -110,6 +111,19 @@
                   </div>
                   <div class="col-xs-12" style="margin-top:15px">
                      <div class="form-group">
+=======
+                  <div class="col-xs-12" style="margin-top:15px">
+                     <div class="form-group">
+                        <span class="col-xs-2" style="margin-left:10px; margin-bottom:15px; font-size:18px">Deskripsi &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: </span>
+                        <div class="col-xs-4">
+                           <textarea disabled class="textarea" name="keterangan" placeholder="isi nota"
+                              style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;"><?php echo $nota['deskripsi'] ?></textarea>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="col-xs-12" style="margin-top:15px">
+                     <div class="form-group">
+>>>>>>> 18b77b31352cdd505fad465e6a64c0916d10be71
                         <span class="col-xs-2" style="margin-left:10px; margin-bottom:15px; font-size:18px">Keterangan use case &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: </span>
                         <div class="col-xs-4">
                            <textarea disabled class="textarea" name="isi_nota" placeholder="isi nota"

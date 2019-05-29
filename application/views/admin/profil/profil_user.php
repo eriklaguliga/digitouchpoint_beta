@@ -230,7 +230,11 @@ $(document).ready(function(){
               </span>
               <div class="form-group">
               <select name="bidang" id="bidang" class = "form-control input-lg"> 
+<<<<<<< HEAD
               <option value="" style="font-size:50px;><?php echo $profil['nama_bidang'] ?></option>
+=======
+                    <option value=""><?php echo $profil['nama_bidang'] ?></option>
+>>>>>>> 18b77b31352cdd505fad465e6a64c0916d10be71
                     <?php 
                     foreach ($bidang as $row)
                     {

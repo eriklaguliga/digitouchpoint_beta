@@ -8,7 +8,10 @@
         $this->load->Model('Model_permintaan');
       }
       
+<<<<<<< HEAD
       
+=======
+>>>>>>> 18b77b31352cdd505fad465e6a64c0916d10be71
        function add() {
 
         $config['upload_path']  ='./upload/';
@@ -29,7 +32,11 @@
                'deskripsi' => $this->input->post('deskripsi'),
                'nama_usecase' => $this->input->post('use_case'),
                'stakeholder' => $this->input->post('stakeholder'),
+<<<<<<< HEAD
                'file_' =>   $upload_data['file_name'],
+=======
+               'file' =>   $upload_data['file_name'],
+>>>>>>> 18b77b31352cdd505fad465e6a64c0916d10be71
                'id_bidang' =>$this->input->post('id_bidang'),
                'last_edit' => $this->session->userdata('username'),
                'tobeuser'=> $this->input->post('namauser'),
@@ -44,28 +51,28 @@
            $data1 = array(
                'id_nota' => $ambil,
                'level' => '1',
-               'username' => 'user',
+               'username' => $this->session->userdata('username'),
            );
            $data2 = array(
                'id_nota' => $ambil,
                'level' => '2',
-               'username' => 'dataowner',
+               'username' =>  $this->session->userdata('username'),
            );
            $data3 = array(
                'id_nota' => $ambil,
                'level' => '3',
-               'username' => 'dgcouncil',
+               'username' =>  $this->session->userdata('username'),
            );
            $data4 = array(
                'id_nota' => $ambil,
                'level' => '4',
-               'username' => 'admin',
+               'username' =>  $this->session->userdata('username'),
                    //     'file' => $uploads
            );
               $data5 = array(
                   'id_nota' => $ambil,
                   'level' => '5',
-                  'username' => 'FINISH',
+                  'username' =>  $this->session->userdata('username'),
                       //     'file' => $uploads
               );
               $this->db->insert('apruval',$data1);
@@ -93,8 +100,13 @@
    
        }
 
+<<<<<<< HEAD
        
       
+=======
+       function ceknota($nama)
+
+>>>>>>> 18b77b31352cdd505fad465e6a64c0916d10be71
        function cekseksi($nama_subbidang){
          $hasil = $this->db->query("SELECT id_seksi FROM tbl_subbidang WHERE nama_subbidang like '%$nama_subbidang%' limit 1")->row_array();
          $seksi = $hasil['id_seksi'];

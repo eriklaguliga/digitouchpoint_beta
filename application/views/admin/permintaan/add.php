@@ -64,11 +64,11 @@
                                 <span class="col-xs-2" style="margin-left:10px; margin-bottom:15px; font-size:18px">Approver &nbsp;:</span>
                                 <div class="col-xs-3">
                                 <input class="form-control" type="text"
-                                    <?php if ($this->session->userdata('username')=="user"):?>
+                                    <?php if ($this->session->userdata('level')==1):?>
                                         value="dataowner"
-                                    <?php elseif ($this->session->userdata('username')=="dataowner"):?>
+                                    <?php elseif ($this->session->userdata('level')==2):?>
                                         value="dgcouncil" 
-                                    <?php elseif ($this->session->userdata('username')=="dgcouncil"):?>
+                                    <?php elseif ($this->session->userdata('level')==3):?>
                                         value="admin" 
                                     <?php endif ?>
                                     readonly="" id="user" name="namauser" maxlength="50" au tofocus required />
